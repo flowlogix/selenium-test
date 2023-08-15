@@ -19,6 +19,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -57,8 +61,18 @@ public class BasicIT {
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
                 .withLogOutput(System.out).build();
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
         chromeOptions.addArguments("--headless=new");
+
+        FirefoxOptions firefoxOptions = new FirefoxOptions();
+        firefoxOptions.addArguments("-headless");
+
+        SafariOptions safariOptions = new SafariOptions();
+
+        EdgeOptions edgeOptions = new EdgeOptions();
+        //        chromeOptions.setBrowserVersion("");
         driver = new ChromeDriver(chromeDriverService, chromeOptions);
+//        driver = new RemoteWebDriver(safariOptions);
     }
 
     @AfterAll

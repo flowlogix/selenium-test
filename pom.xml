@@ -112,6 +112,9 @@
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>3.1.2</version>
+          <configuration>
+            <groups>none(),any()</groups>
+          </configuration>
           <executions>
             <execution>
               <id>integration-test</id>
