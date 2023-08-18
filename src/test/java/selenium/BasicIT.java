@@ -71,7 +71,7 @@ public class BasicIT {
                 .build();
         ChromeOptions chromeOptions = new ChromeOptions();
 //        chromeOptions.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
-//        chromeOptions.addArguments("--headless=new");
+        chromeOptions.addArguments("--headless=new");
 
         FirefoxOptions firefoxOptions = new FirefoxOptions();
         firefoxOptions.addArguments("-headless");
