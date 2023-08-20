@@ -64,7 +64,7 @@ public class BasicIT {
 
     @BeforeAll
     static void setupAll() {
-        var startTime2 = Instant.now();
+        var startTime1 = Instant.now();
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
 //                .withVerbose(true)
                 .withLogOutput(System.out)
@@ -80,20 +80,20 @@ public class BasicIT {
 
         EdgeOptions edgeOptions = new EdgeOptions();
         //        chromeOptions.setBrowserVersion("");
-        var endTime2 = Instant.now();
-        var duration2 = Duration.between(startTime2, endTime2);
-        System.out.format("setupSession() took %02d.%04d seconds \n", duration2.toSeconds(), duration2.toMillis());
+        var endTime1 = Instant.now();
+        var duration1 = Duration.between(startTime1, endTime1);
+        System.out.format("setupSession() took %02d.%04d seconds \n", duration1.toSeconds(), duration1.toMillis());
 
-        var startTime1 = Instant.now();
+        var startTime2 = Instant.now();
 //        driver = new FirefoxDriver(firefoxOptions);
         driver = new ChromeDriver(chromeDriverService, chromeOptions);
         driver = new Augmenter().augment(driver);
 //        chromeDriverService.close();
 //        driver = new RemoteWebDriver(safariOptions);
 
-        var endTime1 = Instant.now();
-        var duration1 = Duration.between(startTime1, endTime1);
-        System.out.format("createSession() took %02d.%04d seconds \n", duration1.toSeconds(), duration1.toMillis());
+        var endTime2 = Instant.now();
+        var duration2 = Duration.between(startTime2, endTime2);
+        System.out.format("createSession() took %02d.%04d seconds \n", duration2.toSeconds(), duration2.toMillis());
     }
 
     @AfterAll
