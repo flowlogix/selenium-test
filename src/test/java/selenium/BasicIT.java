@@ -24,6 +24,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.grid.Main;
 import org.openqa.selenium.manager.SeleniumManager;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -70,7 +71,8 @@ public class BasicIT {
 
     @BeforeAll
     static void setupAll() {
-        downloadManager();
+//        downloadManager();
+        startGrid();
         var startTime1 = Instant.now();
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
 //                .withVerbose(true)
@@ -92,8 +94,8 @@ public class BasicIT {
 
         var startTime2 = Instant.now();
 //        driver = new FirefoxDriver(firefoxOptions);
-        driver = new ChromeDriver(chromeDriverService, chromeOptions);
-//        driver = new RemoteWebDriver(edgeOptions);
+//        driver = new ChromeDriver(chromeDriverService, chromeOptions);
+        driver = new RemoteWebDriver(chromeOptions);
         driver = new Augmenter().augment(driver);
 
         var endTime2 = Instant.now();
@@ -143,7 +145,7 @@ public class BasicIT {
         return managerPath;
     }
 
-    static private Path getManagerPath() {
+    private static Path getManagerPath() {
         String cachePath = "~/.cache/selenium".replace("~", System.getProperty("user.home"));
         String cachePathEnv = System.getenv("SE_CACHE_PATH");
         if (cachePathEnv != null) {
@@ -156,5 +158,12 @@ public class BasicIT {
         String minorVersion = releaseLabel.substring(0, lastDot);
         String seleniumManagerVersion = "0." + minorVersion;
         return Paths.get(cacheParent.toString(), String.format("/manager/%s/%s", seleniumManagerVersion, binaryName));
+    }
+
+    static void startGrid() {
+        Main.main(new String[]{
+                "standalone",
+                "--selenium-manager", "true",
+                "--enable-managed-downloads", "true"});
     }
 }
