@@ -4,18 +4,20 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.flowlogix</groupId>
   <artifactId>selenium-test</artifactId>
   <version>1.x-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Selenium Test</name>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>21</maven.compiler.release>
+  <parent>
+    <groupId>com.flowlogix</groupId>
+    <artifactId>infra-pom</artifactId>
+    <version>2</version>
+  </parent>
 
+  <properties>
     <jakarta.ee.version>10.0.0</jakarta.ee.version>
-    <arquillian.version>1.8.0.Final</arquillian.version>
+    <checkstyle.skip>true</checkstyle.skip>
   </properties>
 
   <dependencies>
@@ -51,7 +53,7 @@
     <dependency>
       <groupId>fish.payara.arquillian</groupId>
       <artifactId>arquillian-payara-server-remote</artifactId>
-      <version>3.0.alpha8</version>
+      <version>${arquillian.payara.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -107,54 +109,13 @@
   </dependencyManagement>
 
   <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.12.1</version>
-        <configuration>
-          <proc>full</proc>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <configuration>
-          <groups>none(),any()</groups>
-        </configuration>
-      </plugin>
-    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-war-plugin</artifactId>
-          <version>3.4.0</version>
           <configuration>
             <failOnMissingWebXml>false</failOnMissingWebXml>
           </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.5</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>3.2.5</version>
-          <executions>
-            <execution>
-              <id>integration-test</id>
-              <goals>
-                <goal>integration-test</goal>
-                <goal>verify</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.3.2</version>
         </plugin>
       </plugins>
     </pluginManagement>
