@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.flowlogix.depchain</groupId>
       <artifactId>integration-test</artifactId>
-      <version>6</version>
+      <version>9</version>
       <scope>test</scope>
       <type>pom</type>
     </dependency>
