@@ -40,6 +40,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -177,9 +179,9 @@ public class BasicIT {
     static Path downloadManager() {
         Path managerPath = getManagerPath();
         managerPath.getParent().toFile().mkdirs();
-        System.out.printf("ChromeDriver path: %s, Selenium Manager Path: %s\n",
-                SeleniumManager.getInstance().getDriverPath(new ChromeOptions(), false).getDriverPath(),
-                managerPath);
+        var paths = SeleniumManager.getInstance().getBinaryPaths(new ArrayList<>(List.of("--browser", "chrome")));
+        System.out.printf("ChromeDriver path: %s, Chrome Path: %s, Selenium Manager Path: %s\n",
+                paths.getDriverPath(), paths.getBrowserPath(), managerPath);
         return managerPath;
     }
 
