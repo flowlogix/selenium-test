@@ -17,7 +17,7 @@
 
   <properties>
     <checkstyle.skip>true</checkstyle.skip>
-    <arquillian.payara.version>3.0.alpha8</arquillian.payara.version>
+    <arquillian.payara.version>3.0</arquillian.payara.version>
   </properties>
 
   <dependencies>
