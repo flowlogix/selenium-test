@@ -99,14 +99,6 @@
             <failOnMissingWebXml>false</failOnMissingWebXml>
           </configuration>
         </plugin>
-        <plugin>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <configuration>
-            <systemPropertyVariables>
-              <arquillian.launch>${arquillian.launch}</arquillian.launch>
-            </systemPropertyVariables>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
