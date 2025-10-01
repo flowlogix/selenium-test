@@ -78,7 +78,7 @@
       <dependency>
         <groupId>com.flowlogix</groupId>
         <artifactId>flowlogix-bom</artifactId>
-        <version>10.0.3</version>
+        <version>10.0.4</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
