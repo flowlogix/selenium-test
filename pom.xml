@@ -32,7 +32,7 @@
     <dependency>
       <groupId>com.flowlogix.depchain</groupId>
       <artifactId>integration-test</artifactId>
-      <version>93</version>
+      <version>94</version>
       <scope>test</scope>
       <type>pom</type>
     </dependency>
