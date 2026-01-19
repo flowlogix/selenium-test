@@ -69,13 +69,6 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-bom</artifactId>
-        <version>4.39.0</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      <dependency>
         <groupId>com.flowlogix</groupId>
         <artifactId>flowlogix-bom</artifactId>
         <version>16</version>
