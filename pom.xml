@@ -17,9 +17,6 @@
 
   <properties>
     <checkstyle.skip>true</checkstyle.skip>
-    <arquillian.payara.version>3.1</arquillian.payara.version>
-    <jakarta.ee.version>10.0.0</jakarta.ee.version>
-    <arquillian.version>1.10.2.Final</arquillian.version>
   </properties>
 
   <dependencies>
@@ -34,7 +31,6 @@
       <artifactId>integration-test</artifactId>
       <version>123</version>
       <scope>test</scope>
-      <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -49,52 +45,20 @@
     </dependency>
 
     <dependency>
-      <groupId>fish.payara.arquillian</groupId>
-      <artifactId>arquillian-payara-server-remote</artifactId>
-      <version>${arquillian.payara.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-grid</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.flowlogix</groupId>
-        <artifactId>flowlogix-bom</artifactId>
-        <version>33</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.arquillian</groupId>
-        <artifactId>arquillian-bom</artifactId>
-        <version>${arquillian.version}</version>
-        <type>pom</type>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <configuration>
-            <failOnMissingWebXml>false</failOnMissingWebXml>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
