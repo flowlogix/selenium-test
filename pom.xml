@@ -16,7 +16,6 @@
   </parent>
 
   <properties>
-    <flowlogix.bom.version>56</flowlogix.bom.version>
     <checkstyle.skip>true</checkstyle.skip>
   </properties>
 
@@ -68,7 +67,7 @@
       <dependency>
         <groupId>com.flowlogix</groupId>
         <artifactId>flowlogix-bom</artifactId>
-        <version>${flowlogix.bom.version}</version>
+        <version>56</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
